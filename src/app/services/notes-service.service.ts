@@ -1,26 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotesServiceService {
-  public notes: any[] = [];
+  public notes: any[] = []
 
   constructor() {}
 
   addNote(note: any) {
-    this.notes.push(note);
-    console.log(this.notes);
+    this.notes.push(note)
   }
 
-  deleteNote(id: any) {
+  deleteNote(id: string) {
     this.notes.map((el) => {
       if (el.id == id) {
-        let index = this.notes.indexOf(el[id]);
-        this.notes.splice(index, 1);
+        let index = this.notes.indexOf(el)
+
+        this.notes.splice(index, 1)
       }
-    });
+    })
   }
 
-  yoyo() {}
+  udpateNote(note: any) {}
 }

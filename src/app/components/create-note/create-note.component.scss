@@ -5,10 +5,11 @@
   align-items: center;
   width: 300px;
   height: 300px;
-  margin-top: 50px;
   background-color: #bfc4ec;
+  position: relative;
+  border-radius: 15%;
 
-  .title {
+  input {
     width: 267px;
     height: 20px;
     border: none;
@@ -30,4 +31,14 @@
     border: none;
     background-color: aliceblue;
   }
+}
+
+input.ng-invalid.ng-touched {
+  border: solid 1px red;
+}
+
+.alert {
+  position: absolute;
+  top: 13%;
+  color: #fb3333;
 }

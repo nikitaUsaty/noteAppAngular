@@ -1,17 +1,10 @@
 <div class="createNote">
   <h3>Create Note</h3>
-  <input
-    type="text"
-    class="title"
-    placeholder="Title"
-    [formControl]="noteTitleForm"
-  />
-  <textarea
-    name=""
-    id="createNote__input"
-    cols="30"
-    rows="10"
-    [formControl]="noteDescriprionForm"
-  ></textarea>
+  <input type="text" class="" placeholder="Title*" [formControl]="noteTitleForm" class="form-control" />
+  <textarea name="" id="createNote__input" cols="30" rows="10" [formControl]="noteDescriprionForm"></textarea>
   <button class="createNote__btn" (click)="addNote()">Add Notes</button>
+
+  <div *ngIf="noteTitleForm.invalid && noteTitleForm.touched" class="alert">
+    <div *ngIf="noteTitleForm.errors?.['required'] ">Title is required</div>
+  </div>
 </div>

@@ -1,0 +1,13 @@
+.filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  input {
+    width: 270px;
+    height: 25px;
+    border: none;
+    border-radius: 5%;
+    background-color: aliceblue;
+  }
+}
