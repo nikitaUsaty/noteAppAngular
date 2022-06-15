@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { NoteModel } from 'src/app/models/note-model.model'
 import { NotesServiceService } from 'src/app/services/notes-service.service'
 
@@ -10,6 +10,14 @@ import { NotesServiceService } from 'src/app/services/notes-service.service'
 export class NoteItemComponent implements OnInit {
   public notes!: NoteModel[]
 
+  public isToggled: boolean = false
+
+  public titleForUpdate!: string
+
+  public bodyForUpdate!: string
+
+  @Input() note!: NoteModel
+
   constructor(private noteService: NotesServiceService) {}
 
   ngOnInit(): void {
@@ -17,8 +25,15 @@ export class NoteItemComponent implements OnInit {
   }
 
   delete(note: any) {
-    console.log(note, 'delete')
-
     this.noteService.deleteNote(note)
+  }
+
+  changeToUpdate() {
+    this.isToggled = true
+  }
+
+  update(id: string) {
+    this.noteService.updateNote(id, this.titleForUpdate, this.bodyForUpdate)
+    this.isToggled = false
   }
 }

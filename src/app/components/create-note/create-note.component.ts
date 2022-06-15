@@ -13,7 +13,7 @@ import * as uuid from 'uuid'
 export class CreateNoteComponent implements OnInit {
   notes: any
   constructor(private notesService: NotesServiceService) {}
-  formGroup: FormGroup = new FormGroup({})
+
   noteTitleForm = new FormControl('', [Validators.required])
   noteDescriprionForm = new FormControl('')
   ngOnInit(): void {}
@@ -35,7 +35,6 @@ export class CreateNoteComponent implements OnInit {
   }
 
   public getColorClass(row: any = ''): string {
-    // Compute the class name
     return 'alert'
   }
 }

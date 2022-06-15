@@ -1,17 +1,22 @@
-<div class="wrapper">
-  <ng-container *ngIf="notes[0]">
-    <div class="note-item" *ngFor="let note of notes">
-      <div class="note-header">
-        <h3 class="title">{{ note.title }}</h3>
-        <div class="control-note">
-          <span class="material-symbols-outlined"> edit_note </span>
-          <span class="material-symbols-outlined" (click)="delete(note.id)"> delete </span>
-        </div>
+<ng-container *ngIf="notes[0]">
+  <div class="note-item">
+    <div class="note-header">
+      <h3 class="title" *ngIf="!isToggled">{{ note.title }}</h3>
+      <textarea name="" id="updateTitle" cols="30" rows="10" *ngIf="isToggled" [(ngModel)]="titleForUpdate">{{
+        note.title
+      }}</textarea>
+      <div class="control-note">
+        <span class="material-symbols-outlined" (click)="changeToUpdate()"> edit_note </span>
+        <span class="material-symbols-outlined" (click)="delete(note.id)"> delete </span>
       </div>
-      <p class="desription">
-        {{ note.body }}
-      </p>
-      <button class="update-btn">update</button>
     </div>
-  </ng-container>
-</div>
+    <p class="desription" *ngIf="!isToggled">
+      {{ note.body }}
+    </p>
+    <textarea class="updateDesription" *ngIf="isToggled" [(ngModel)]="bodyForUpdate">
+        {{ note.body }}
+      </textarea
+    >
+    <button class="update-btn" (click)="update(note.id)" (click)="changeToUpdate()" *ngIf="isToggled">update</button>
+  </div>
+</ng-container>

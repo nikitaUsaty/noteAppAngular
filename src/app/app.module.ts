@@ -8,8 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { NotesListComponent } from './components/notes-list/notes-list.component'
 import { NoteItemComponent } from './components/note-item/note-item.component'
-import { RemoveClassDirective } from './derectives/remove-class.directive';
+import { RemoveClassDirective } from './derectives/remove-class.directive'
 import { FilterComponent } from './components/filter/filter.component'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { FilterComponent } from './components/filter/filter.component'
     RemoveClassDirective,
     FilterComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

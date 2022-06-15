@@ -1,54 +1,63 @@
-.wrapper {
+.note-item {
   display: flex;
-  flex-wrap: wrap;
-  // margin: 0 auto;
-  margin-top: 40px;
-  margin-left: 20px;
+  flex-direction: column;
 
-  .note-item {
+  width: 280px;
+  height: 250px;
+  background-color: #bfdeec;
+  border-radius: 15%;
+  margin: 10px 10px;
+
+  .note-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px 27px 0;
+    cursor: pointer;
 
-    width: 280px;
-    height: 250px;
-    background-color: #bfdeec;
-    border-radius: 15%;
-    margin: 10px 10px;
+    .title {
+      margin: 5px;
+      text-transform: uppercase;
+      overflow-x: scroll;
+    }
 
-    .note-header {
+    #updateTitle {
+      width: 200px;
+      height: 20px;
+      margin-left: -10px;
+      resize: none;
+      border: none;
+      background-color: aliceblue;
+    }
+
+    .control-note {
       display: flex;
-      justify-content: space-between;
-      margin: 20px 27px 0;
-      cursor: pointer;
-
-      .title {
-        margin: 5px;
-        text-transform: uppercase;
-        overflow-x: scroll;
-        overflow-wrap: anywhere;
-      }
-
-      .control-note {
-        display: flex;
-        width: 69px;
-      }
-
-      span {
-        margin: 0 5px;
-      }
+      width: 69px;
     }
 
-    .desription {
-      margin: 5px 17px 20px;
-      height: 153px;
-      align-self: start;
-      overflow-y: scroll;
+    span {
+      margin: 0 5px;
     }
+  }
 
-    .update-btn {
-      width: min-content;
-      margin: 0 auto;
-      margin-bottom: 15px;
-    }
+  .desription {
+    margin: 5px 17px 20px;
+    height: 153px;
+    align-self: start;
+    overflow-y: scroll;
+  }
+
+  .updateDesription {
+    margin: 5px 17px 20px;
+    height: 153px;
+    width: 242px;
+    resize: none;
+    border: none;
+    background-color: aliceblue;
+  }
+
+  .update-btn {
+    width: min-content;
+    margin: 0 auto;
+    margin-bottom: 15px;
   }
 }

@@ -22,5 +22,12 @@ export class NotesServiceService {
     })
   }
 
-  udpateNote(note: any) {}
+  updateNote(id: string, title: string, body: string) {
+    this.notes.map((el) => {
+      if (el.id == id) {
+        el.title = title
+        el.body = body
+      }
+    })
+  }
 }
