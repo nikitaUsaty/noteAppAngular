@@ -1,0 +1,17 @@
+<div class="createNote">
+  <h3>Create Note</h3>
+  <input
+    type="text"
+    class="title"
+    placeholder="Title"
+    [formControl]="noteTitleForm"
+  />
+  <textarea
+    name=""
+    id="createNote__input"
+    cols="30"
+    rows="10"
+    [formControl]="noteDescriprionForm"
+  ></textarea>
+  <button class="createNote__btn" (click)="addNote()">Add Notes</button>
+</div>

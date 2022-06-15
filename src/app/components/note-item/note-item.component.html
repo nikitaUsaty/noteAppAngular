@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <ng-container *ngIf="notes[0]"
+    ><div class="note-item" *ngFor="let note of notes">
+      <div class="update-btns">
+        <span class="material-symbols-outlined" (click)="delete(note.id)">
+          delete
+        </span>
+        <span class="material-symbols-outlined"> edit_note </span>
+      </div>
+      <h3 class="title">{{ note.title }}</h3>
+      <p class="desription">
+        {{ note.body }}
+      </p>
+    </div></ng-container
+  >
+</div>
