@@ -11,9 +11,10 @@ import { NoteItemComponent } from './components/note-item/note-item.component'
 import { RemoveClassDirective } from './derectives/remove-class.directive'
 import { FilterComponent } from './components/filter/filter.component'
 import { FormsModule } from '@angular/forms'
-import { TextInputHighlightModule } from 'angular-text-input-highlight';
-import { TagsComponent } from './components/tags/tags.component';
+import { TextInputHighlightModule } from 'angular-text-input-highlight'
+import { TagsComponent } from './components/tags/tags.component'
 import { SearchFilterPipe } from './pipes/search-filter.pipe'
+import { Ng2SearchPipeModule } from 'ng2-search-filter'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,14 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe'
     TagsComponent,
     SearchFilterPipe,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule, TextInputHighlightModule],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    TextInputHighlightModule,
+    Ng2SearchPipeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

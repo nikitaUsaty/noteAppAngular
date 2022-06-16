@@ -7,6 +7,6 @@ import { NoteModel } from '../models/note-model.model'
 export class SearchFilterPipe implements PipeTransform {
   transform(notes: any[], value: string = ''): NoteModel[] {
     if (!notes || !value) return notes
-    return notes.filter((note: NoteModel) => note.tag?.filter((el: any) => el.includes(value)))
+    return notes.filter((el) => el.body.toLocaleUpperCase().includes('#' + value.toLocaleUpperCase()))
   }
 }
