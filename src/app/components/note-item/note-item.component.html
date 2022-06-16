@@ -20,7 +20,7 @@
     <!-- <mwl-text-input-highlight [tags]="tags" [tagCssClass]="'bg-blue'"> </mwl-text-input-highlight> -->
     <button class="update-btn" (click)="update(note.id)" (click)="changeToUpdate()" *ngIf="isToggled">update</button>
     <ng-container *ngIf="!isToggled">
-      <div class="tags" *ngFor="let tag of tags">
+      <div class="tags" *ngFor="let tag of note.tag">
         <p class="tag">{{ tag.join(' ') }}</p>
       </div>
     </ng-container>

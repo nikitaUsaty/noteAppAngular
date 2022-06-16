@@ -18,7 +18,7 @@ export class NoteItemComponent implements OnInit {
 
   public bodyForUpdate!: string
 
-  public tags!: any[]
+  public tags!: any
 
   @Input() note!: NoteModel
 
@@ -26,7 +26,6 @@ export class NoteItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.notes = this.noteService.notes
-    this.tags = this.noteService.tags
   }
 
   delete(note: any) {
@@ -38,14 +37,13 @@ export class NoteItemComponent implements OnInit {
   }
 
   createTagList(body: string) {
-    this.tags.push(body.split(' ').filter((el) => el.startsWith('#')))
+    this.tags.push([...body.split(' ').filter((el) => el.startsWith('#'))])
   }
 
   update(id: string) {
     this.tags = []
-    this.noteService.updateNote(id, this.note.title, this.note.body!)
     this.createTagList(this.note.body!)
-    console.log(this.tags)
+    this.noteService.updateNote(id, this.note.title, this.note.body!, this.tags)
 
     this.isToggled = false
   }

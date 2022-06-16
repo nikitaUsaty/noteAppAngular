@@ -1,3 +1,7 @@
 <div class="wrapper">
-  <app-note-item class="note-item" *ngFor="let note of notes" [note]="note"></app-note-item>
+  <app-note-item
+    class="note-item"
+    *ngFor="let note of notes | searchFilter: submitSearch.searchStr"
+    [note]="note"
+  ></app-note-item>
 </div>
