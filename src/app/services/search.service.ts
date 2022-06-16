@@ -11,14 +11,8 @@ export class SearchService {
 
   public searchStr!: string
 
-  public currentSearchState$!: Observable<string>
-
-  private startSearchState$ = new BehaviorSubject<string>('')
-
   constructor() {
     this.searchSubmit$ = this.searchSubmit$$.asObservable()
-
-    this.currentSearchState$ = this.startSearchState$.asObservable()
   }
 
   public showResults() {
