@@ -1,5 +1,5 @@
 export class NoteModel {
   id!: string
-  title?: string | undefined
+  title!: string
   body?: string | undefined
 }

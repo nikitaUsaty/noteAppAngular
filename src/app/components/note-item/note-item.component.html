@@ -2,7 +2,7 @@
   <div class="note-item">
     <div class="note-header">
       <h3 class="title" *ngIf="!isToggled">{{ note.title }}</h3>
-      <textarea name="" id="updateTitle" cols="30" rows="10" *ngIf="isToggled" [(ngModel)]="titleForUpdate">{{
+      <textarea name="" id="updateTitle" cols="30" rows="10" *ngIf="isToggled" [(ngModel)]="note.title">{{
         note.title
       }}</textarea>
       <div class="control-note">
@@ -13,10 +13,16 @@
     <p class="desription" *ngIf="!isToggled">
       {{ note.body }}
     </p>
-    <textarea class="updateDesription" *ngIf="isToggled" [(ngModel)]="bodyForUpdate">
+    <textarea class="updateDesription" *ngIf="isToggled" [(ngModel)]="note.body">
         {{ note.body }}
       </textarea
     >
+    <!-- <mwl-text-input-highlight [tags]="tags" [tagCssClass]="'bg-blue'"> </mwl-text-input-highlight> -->
     <button class="update-btn" (click)="update(note.id)" (click)="changeToUpdate()" *ngIf="isToggled">update</button>
+    <ng-container *ngIf="!isToggled">
+      <div class="tags" *ngFor="let tag of tags">
+        <p class="tag">{{ tag.join(' ') }}</p>
+      </div>
+    </ng-container>
   </div>
 </ng-container>

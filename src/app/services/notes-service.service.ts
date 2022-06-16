@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core'
 export class NotesServiceService {
   public notes: any[] = []
 
+  public tags: any[] = []
   constructor() {}
 
   addNote(note: any) {
@@ -29,5 +30,10 @@ export class NotesServiceService {
         el.body = body
       }
     })
+  }
+
+  addTag(tag: any) {
+    this.tags.push(tag)
+    console.log(this.tags)
   }
 }

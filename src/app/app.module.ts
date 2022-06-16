@@ -11,6 +11,8 @@ import { NoteItemComponent } from './components/note-item/note-item.component'
 import { RemoveClassDirective } from './derectives/remove-class.directive'
 import { FilterComponent } from './components/filter/filter.component'
 import { FormsModule } from '@angular/forms'
+import { TextInputHighlightModule } from 'angular-text-input-highlight';
+import { TagsComponent } from './components/tags/tags.component'
 
 @NgModule({
   declarations: [
@@ -21,8 +23,9 @@ import { FormsModule } from '@angular/forms'
     NoteItemComponent,
     RemoveClassDirective,
     FilterComponent,
+    TagsComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule, TextInputHighlightModule],
   providers: [],
   bootstrap: [AppComponent],
 })
