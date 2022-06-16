@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms'
 import { TextInputHighlightModule } from 'angular-text-input-highlight'
 import { TagsComponent } from './components/tags/tags.component'
 import { SearchFilterPipe } from './pipes/search-filter.pipe'
-import { Ng2SearchPipeModule } from 'ng2-search-filter'
 
 @NgModule({
   declarations: [
@@ -28,14 +27,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter'
     TagsComponent,
     SearchFilterPipe,
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-    TextInputHighlightModule,
-    Ng2SearchPipeModule,
-  ],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, FormsModule, TextInputHighlightModule],
   providers: [],
   bootstrap: [AppComponent],
 })
