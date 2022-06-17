@@ -76,4 +76,12 @@ export class NoteItemComponent implements OnInit {
     elm.classList.remove('bg-blue-dark')
     elm.classList.remove('bg-pink-dark')
   }
+
+  // tagz: HighlightTag[] = [
+  //   {
+  //     indices: { start: 8, end: 12 },
+  //     cssClass: 'bg-blue',
+  //     data: { user: { id: 1 } },
+  //   },
+  // ]
 }
