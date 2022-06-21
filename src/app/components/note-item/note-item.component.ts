@@ -31,15 +31,15 @@ export class NoteItemComponent implements OnInit {
     this.addTags()
   }
 
-  delete(note: any) {
+  delete(note: string): void {
     this.noteService.deleteNote(note)
   }
 
-  changeToUpdate() {
+  changeToUpdate(): void {
     this.isToggled = true
   }
 
-  createTagList(body: string) {
+  createTagList(body: string): void {
     this.hashtags.push([...body.split(' ').filter((el) => el.startsWith('#'))])
   }
 
@@ -51,7 +51,7 @@ export class NoteItemComponent implements OnInit {
     this.isToggled = false
   }
 
-  addTags() {
+  addTags(): void {
     this.tags = []
 
     const matchHashtags = /(#\w+) ?/g

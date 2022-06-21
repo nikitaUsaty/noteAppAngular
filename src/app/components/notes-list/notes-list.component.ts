@@ -9,7 +9,7 @@ import { SearchService } from 'src/app/services/search.service'
   styleUrls: ['./notes-list.component.scss'],
 })
 export class NotesListComponent implements OnInit {
-  public notes!: any
+  public notes!: NoteModel[]
 
   constructor(private noteService: NotesServiceService, public submitSearch: SearchService) {}
 
