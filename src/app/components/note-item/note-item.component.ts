@@ -18,7 +18,9 @@ export class NoteItemComponent implements OnInit {
 
   public bodyForUpdate!: string
 
-  public tags!: any
+  public hashtags!: any
+
+  tags: HighlightTag[] = []
 
   @Input() note!: NoteModel
 
@@ -26,6 +28,7 @@ export class NoteItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.notes = this.noteService.notes
+    this.addTags()
   }
 
   delete(note: any) {
@@ -37,18 +40,20 @@ export class NoteItemComponent implements OnInit {
   }
 
   createTagList(body: string) {
-    this.tags.push([...body.split(' ').filter((el) => el.startsWith('#'))])
+    this.hashtags.push([...body.split(' ').filter((el) => el.startsWith('#'))])
   }
 
   update(id: string) {
-    this.tags = []
+    this.hashtags = []
     this.createTagList(this.note.body!)
-    this.noteService.updateNote(id, this.note.title, this.note.body!, this.tags)
+    this.noteService.updateNote(id, this.note.title, this.note.body!, this.hashtags)
 
     this.isToggled = false
   }
 
   addTags() {
+    this.tags = []
+
     const matchHashtags = /(#\w+) ?/g
     let hashtag
     // tslint:disable-next-line
@@ -63,25 +68,4 @@ export class NoteItemComponent implements OnInit {
       })
     }
   }
-
-  addDarkClass(elm: HTMLElement) {
-    if (elm.classList.contains('bg-blue')) {
-      elm.classList.add('bg-blue-dark')
-    } else if (elm.classList.contains('bg-pink')) {
-      elm.classList.add('bg-pink-dark')
-    }
-  }
-
-  removeDarkClass(elm: HTMLElement) {
-    elm.classList.remove('bg-blue-dark')
-    elm.classList.remove('bg-pink-dark')
-  }
-
-  // tagz: HighlightTag[] = [
-  //   {
-  //     indices: { start: 8, end: 12 },
-  //     cssClass: 'bg-blue',
-  //     data: { user: { id: 1 } },
-  //   },
-  // ]
 }

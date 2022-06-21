@@ -32,8 +32,6 @@ export class NotesServiceService {
         el.tag = tag
       }
     })
-
-    console.log(this.notes)
   }
 
   addTag(tag: any) {

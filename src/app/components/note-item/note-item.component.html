@@ -13,11 +13,26 @@
     <p class="desription" *ngIf="!isToggled">
       {{ note.body }}
     </p>
-    <textarea class="updateDesription" *ngIf="isToggled" [(ngModel)]="note.body">
+    <!-- <textarea appTagHighlight class="updateDesription" *ngIf="isToggled" [(ngModel)]="note.body">
         {{ note.body }}
       </textarea
-    >
-    <mwl-text-input-highlight [tags]="tags" *ngIf="isToggled" [tagCssClass]="'bg-blue'"> </mwl-text-input-highlight>
+    > -->
+
+    <div mwlTextInputHighlightContainer *ngIf="isToggled" style="margin: 5px 17px 10px">
+      <textarea
+        mwlTextInputElement
+        rows="6"
+        class="form-control updateDesription"
+        [(ngModel)]="note.body"
+        #textarea
+        (input)="addTags()"
+      >
+       {{ note.body }}
+      </textarea>
+      <mwl-text-input-highlight [tags]="tags" [tagCssClass]="'bg-blue'" [textInputElement]="textarea">
+      </mwl-text-input-highlight>
+    </div>
+
     <button class="update-btn" (click)="update(note.id)" (click)="changeToUpdate()" *ngIf="isToggled">update</button>
     <ng-container *ngIf="!isToggled">
       <div class="tags" *ngFor="let tag of note.tag">
